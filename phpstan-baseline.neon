@@ -1,0 +1,102 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$filename of method Monolog\\\\Handler\\\\RotatingFileHandler\\:\\:__construct\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Handler/HttpLoggerHandler.php
+
+		-
+			message: "#^Method Prettus\\\\RequestLogger\\\\Helpers\\\\RequestInterpolation\\:\\:resolveVariable\\(\\) should return string\\|null but returns array\\|string\\|null\\.$#"
+			count: 3
+			path: src/Prettus/RequestLogger/Helpers/RequestInterpolation.php
+
+		-
+			message: "#^Parameter \\#2 \\$replace of function str_replace expects array\\|string, string\\|null given\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Helpers/RequestInterpolation.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Call to an undefined method Illuminate\\\\Log\\\\LogManager\\:\\:getLogger\\(\\)\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Method Prettus\\\\RequestLogger\\\\Logger\\:\\:alert\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Method Prettus\\\\RequestLogger\\\\Logger\\:\\:critical\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Method Prettus\\\\RequestLogger\\\\Logger\\:\\:debug\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Method Prettus\\\\RequestLogger\\\\Logger\\:\\:emergency\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Method Prettus\\\\RequestLogger\\\\Logger\\:\\:error\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Method Prettus\\\\RequestLogger\\\\Logger\\:\\:info\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Method Prettus\\\\RequestLogger\\\\Logger\\:\\:log\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Method Prettus\\\\RequestLogger\\\\Logger\\:\\:notice\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Method Prettus\\\\RequestLogger\\\\Logger\\:\\:warning\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Parameter \\#1 \\$classname of function class_exists expects string, mixed given\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Part \\$handler \\(mixed\\) of encapsed string cannot be cast to string\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/Logger.php
+
+		-
+			message: "#^Parameter \\#1 \\$level of method Prettus\\\\RequestLogger\\\\Logger\\:\\:log\\(\\) expects int\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/ResponseLogger.php
+
+		-
+			message: "#^Parameter \\#1 \\$text of method Prettus\\\\RequestLogger\\\\Helpers\\\\ResponseInterpolation\\:\\:interpolate\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/ResponseLogger.php
+
+		-
+			message: "#^Parameter \\#2 \\$key of static method Illuminate\\\\Support\\\\Arr\\:\\:get\\(\\) expects int\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Prettus/RequestLogger/ResponseLogger.php
+

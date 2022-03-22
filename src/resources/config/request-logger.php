@@ -7,7 +7,6 @@
 |
 */
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Logger
@@ -20,10 +19,10 @@ return [
     | - format : Format for logger output
     */
     'logger' => [
-        'enabled'   => true,
-        'handlers'  => ['Prettus\RequestLogger\Handler\HttpLoggerHandler'],
-        'file'      => storage_path("logs/http.log"),
-        'level'     => 'info',
-        'format'    => 'common'
-    ]
+        'enabled'  => true,
+        'handlers' => ['Prettus\RequestLogger\Handler\HttpLoggerHandler'],
+        'file'     => storage_path('logs/http.log'),
+        'level'    => 'info',
+        'format'   => 'common',
+    ],
 ];

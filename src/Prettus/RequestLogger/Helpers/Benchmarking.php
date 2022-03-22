@@ -1,20 +1,22 @@
-<?php namespace Prettus\RequestLogger\Helpers;
+<?php
+
+namespace Prettus\RequestLogger\Helpers;
 
 /**
- * Class Benchmarking
- * @package Prettus\RequestLogger\Helpers
+ * Class Benchmarking.
+ *
  * @author Anderson Andrade <contato@andersonandra.de>
  */
 class Benchmarking
 {
-
     /**
-     * @var array
+     * @var float[][]
      */
     protected static $timers = [];
 
     /**
-     * @param $name
+     * @param string|int $name
+     *
      * @return mixed
      */
     public static function start($name)
@@ -22,30 +24,30 @@ class Benchmarking
         $start = microtime(true);
 
         static::$timers[$name] = [
-            'start'=>$start
+            'start' => $start,
         ];
 
         return $start;
     }
 
     /**
-     * @param $name
-     * @return float
+     * @param string|int $name
+     *
      * @throws \Exception
+     *
+     * @return float
      */
     public static function end($name)
     {
-
         $end = microtime(true);
 
-        if( isset(static::$timers[$name]) && isset(static::$timers[$name]['start']) ) {
-
-            if( isset(static::$timers[$name]['duration']) ){
+        if (isset(static::$timers[$name], static::$timers[$name]['start'])) {
+            if (isset(static::$timers[$name]['duration'])) {
                 return static::$timers[$name]['duration'];
             }
 
-            $start = static::$timers[$name]['start'];
-            static::$timers[$name]['end'] = $end;
+            $start                             = static::$timers[$name]['start'];
+            static::$timers[$name]['end']      = $end;
             static::$timers[$name]['duration'] = $end - $start;
 
             return static::$timers[$name]['duration'];
@@ -55,9 +57,11 @@ class Benchmarking
     }
 
     /**
-     * @param $name
-     * @return float
+     * @param string|int $name
+     *
      * @throws \Exception
+     *
+     * @return float
      */
     public static function duration($name)
     {

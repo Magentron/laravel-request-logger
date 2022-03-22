@@ -1,17 +1,18 @@
-<?php namespace Prettus\RequestLogger\Helpers;
+<?php
 
-use Prettus\RequestLogger\Contracts\Interpolable;
+namespace Prettus\RequestLogger\Helpers;
 
 use Illuminate\Http\Request;
+use Prettus\RequestLogger\Contracts\Interpolable;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class BaseInterpolation
- * @package Prettus\RequestLogger\Helpers
+ * Class BaseInterpolation.
+ *
  * @author Anderson Andrade <contato@andersonandra.de>
  */
-abstract class BaseInterpolation implements Interpolable {
-
+abstract class BaseInterpolation implements Interpolable
+{
     /**
      * @var Request
      */
@@ -25,7 +26,7 @@ abstract class BaseInterpolation implements Interpolable {
     /**
      * @param Request $request
      */
-    public function setRequest(Request $request)
+    public function setRequest(Request $request): void
     {
         $this->request = $request;
     }
@@ -33,16 +34,27 @@ abstract class BaseInterpolation implements Interpolable {
     /**
      * @param Response $response
      */
-    public function setResponse(Response $response)
+    public function setResponse(Response $response): void
     {
         $this->response = $response;
     }
 
     /**
-     * @param string $raw
+     * @param string|null $raw
+     *
+     * @return string
      */
-    protected function escape($raw)
+    protected function escape(?string $raw): string
     {
-        return preg_replace('/\s/', "\\s", $raw);
+        if (null === $raw) {
+            return '';
+        }
+
+        $result = preg_replace('/\s/', '\\s', $raw);
+        if (null === $result) {
+            return '';
+        }
+
+        return $result;
     }
 }

@@ -1,14 +1,17 @@
-<?php namespace Prettus\RequestLogger\Contracts;
+<?php
+
+namespace Prettus\RequestLogger\Contracts;
 
 /**
- * Interface Interpolable
- * @package Prettus\RequestLogger\Contracts
+ * Interface Interpolable.
+ *
  * @author Anderson Andrade <contato@andersonandra.de>
  */
-interface Interpolable {
-
+interface Interpolable
+{
     /**
      * @param string $text
+     *
      * @return string
      */
     public function interpolate($text);

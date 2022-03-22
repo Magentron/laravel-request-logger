@@ -1,5 +1,5 @@
 {
-  "name": "prettus/laravel-request-logger",
+  "name": "magentron/laravel-request-logger",
   "description": "HTTP request logger middleware for Laravel",
   "keywords": ["laravel", "logger", "request", "response"],
   "license": "MIT",
@@ -9,24 +9,36 @@
       "homepage": "http://andersonandra.de",
       "email": "contato@andersonandra.de",
       "role": "Developer"
+    },
+    {
+      "name": "Jeroen Derks",
+      "email": "jeroen@derks.it",
+      "homepage": "https://www.derks.it/",
+      "role": "Developer"
     }
   ],
-  "homepage": "http://andersao.github.io/laravel-request-logger",
+  "homepage": "https://github.com/Magentron/laravel-request-logger",
   "support": {
-    "email": "contato@andersonandra.de",
-    "issues":"https://github.com/andersao/laravel-request-logger/issues",
-    "wiki":"https://github.com/andersao/laravel-request-logger",
-    "source":"https://github.com/andersao/laravel-request-logger",
+    "email": "info@magentron.com",
+    "issues":"https://github.com/magentron/laravel-request-logger/issues",
+    "wiki":"https://github.com/magentron/laravel-request-logger",
+    "source":"https://github.com/magentron/laravel-request-logger",
     "docs": "http://andersao.github.io/laravel-request-logger"
   },
   "require": {
-    "php": ">=5.4.0",
-    "illuminate/support": "~5.0",
-    "illuminate/http": "~5.0",
-    "monolog/monolog": "~1.11"
+    "php": ">=7.1.3",
+    "illuminate/support": ">=5.6.0",
+    "illuminate/http": ">=5.6.0",
+    "monolog/monolog": ">=1.12.0"
   },
   "require-dev" : {
-    "laravel/framework": "~5.0"
+    "laravel/framework": ">=5.6.0",
+    "vimeo/psalm": "^4.22",
+    "phpstan/phpstan": "^1.4",
+    "friendsofphp/php-cs-fixer": "^3.3"
+  },
+  "replace": {
+	  "prettus/laravel-request-logger": ">1.2.0"
   },
   "autoload": {
     "psr-4": {

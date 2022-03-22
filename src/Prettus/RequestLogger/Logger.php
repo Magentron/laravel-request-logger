@@ -2,36 +2,37 @@
 
 namespace Prettus\RequestLogger;
 
-use Illuminate\Contracts\Logging\Log;
+use Illuminate\Log\LogManager;
+use Illuminate\Support\Facades\Log;
+use Psr\Log\LoggerInterface;
 
 /**
- * Class Logger
- * @package Prettus\Logger\Request
+ * Class Logger.
+ *
  * @author Anderson Andrade <contato@andersonandra.de>
  */
-class Logger implements Log
+class Logger implements LoggerInterface
 {
-
     /**
-     * @var \Monolog\Logger;
+     * @var LoggerInterface;
      */
-    protected $monolog;
+    protected $logger;
 
-    /**
-     *
-     */
     public function __construct()
     {
-        $this->monolog = clone app('log')->getMonolog();
+        /** @var LogManager $logManager */
+        $logManager = app('log');
 
-        if( config('request-logger.logger.enabled') && $handlers = config('request-logger.logger.handlers') ) {
-            if( count($handlers) ) {
+        $this->logger = clone $logManager->getLogger();
+
+        if (config('request-logger.logger.enabled') && $handlers = config('request-logger.logger.handlers')) {
+            if (count($handlers)) {
                 //Remove default laravel handler
-                $this->monolog->popHandler();
+                $this->logger->popHandler();
 
-                foreach($handlers as $handler) {
-                    if( class_exists($handler) ) {
-                        $this->monolog->pushHandler(app($handler));
+                foreach ($handlers as $handler) {
+                    if (class_exists($handler)) {
+                        $this->logger->pushHandler(app($handler));
                     } else {
                         throw new \Exception("Handler class [{$handler}] does not exist");
                     }
@@ -41,124 +42,102 @@ class Logger implements Log
     }
 
     /**
+     * Log an error message to the logs.
+     *
+     * @param string $message
+     * @param array  $context
+     */
+    public function emergency($message, array $context = [])
+    {
+        $this->logger->emergency($message, $context);
+    }
+
+    /**
      * Log an alert message to the logs.
      *
-     * @param  string $message
-     * @param  array $context
-     * @return void
+     * @param string $message
+     * @param array  $context
      */
-    public function alert($message, array $context = array())
+    public function alert($message, array $context = [])
     {
-        $this->monolog->alert($message, $context);
+        $this->logger->alert($message, $context);
     }
 
     /**
      * Log a critical message to the logs.
      *
-     * @param  string $message
-     * @param  array $context
-     * @return void
+     * @param string $message
+     * @param array  $context
      */
-    public function critical($message, array $context = array())
+    public function critical($message, array $context = [])
     {
-        $this->monolog->critical($message, $context);
+        $this->logger->critical($message, $context);
     }
 
     /**
      * Log an error message to the logs.
      *
-     * @param  string $message
-     * @param  array $context
-     * @return void
+     * @param string $message
+     * @param array  $context
      */
-    public function error($message, array $context = array())
+    public function error($message, array $context = [])
     {
-        $this->monolog->error($message, $context);
+        $this->logger->error($message, $context);
     }
 
     /**
      * Log a warning message to the logs.
      *
-     * @param  string $message
-     * @param  array $context
-     * @return void
+     * @param string $message
+     * @param array  $context
      */
-    public function warning($message, array $context = array())
+    public function warning($message, array $context = [])
     {
-        $this->monolog->warning($message, $context);
+        $this->logger->warning($message, $context);
     }
 
     /**
      * Log a notice to the logs.
      *
-     * @param  string $message
-     * @param  array $context
-     * @return void
+     * @param string $message
+     * @param array  $context
      */
-    public function notice($message, array $context = array())
+    public function notice($message, array $context = [])
     {
-        $this->monolog->notice($message, $context);
+        $this->logger->notice($message, $context);
     }
 
     /**
      * Log an informational message to the logs.
      *
-     * @param  string $message
-     * @param  array $context
-     * @return void
+     * @param string $message
+     * @param array  $context
      */
-    public function info($message, array $context = array())
+    public function info($message, array $context = [])
     {
-        $this->monolog->info($message, $context);
+        $this->logger->info($message, $context);
     }
 
     /**
      * Log a debug message to the logs.
      *
-     * @param  string $message
-     * @param  array $context
-     * @return void
+     * @param string $message
+     * @param array  $context
      */
-    public function debug($message, array $context = array())
+    public function debug($message, array $context = [])
     {
-        $this->monolog->debug($message, $context);
+        $this->logger->debug($message, $context);
     }
 
     /**
      * Log a message to the logs.
      *
-     * @param  string $level
-     * @param  string $message
-     * @param  array $context
-     * @return void
+     * @param string|int $level
+     * @param string     $message
+     * @param array      $context
      */
-    public function log($level, $message, array $context = array())
+    public function log($level, $message, array $context = [])
     {
-        $this->monolog->log($level, $message, $context);
-    }
-
-    /**
-     * Register a file log handler.
-     *
-     * @param  string $path
-     * @param  string $level
-     * @return void
-     */
-    public function useFiles($path, $level = 'debug')
-    {
-
-    }
-
-    /**
-     * Register a daily file log handler.
-     *
-     * @param  string $path
-     * @param  int $days
-     * @param  string $level
-     * @return void
-     */
-    public function useDailyFiles($path, $days = 0, $level = 'debug')
-    {
-
+        $this->logger->log($level, $message, $context);
     }
 }

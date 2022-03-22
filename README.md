@@ -1,27 +1,29 @@
 # Laravel Request Logger
 
+This is a fork of [prettus/laravel-request-logger](https://github.com/andersao/laravel-request-logger).
+
 Request and Response Logger for Laravel
 
-Insiperd by [Morgan - Node HTTP request logger](https://github.com/expressjs/morgan)
+Inspired by [Morgan - Node HTTP request logger](https://github.com/expressjs/morgan)
 
-[![Latest Stable Version](https://poser.pugx.org/prettus/laravel-request-logger/v/stable.svg)](https://packagist.org/packages/prettus/laravel-request-logger) [![Total Downloads](https://poser.pugx.org/prettus/laravel-request-logger/downloads.svg)](https://packagist.org/packages/prettus/laravel-request-logger) [![Latest Unstable Version](https://poser.pugx.org/prettus/laravel-request-logger/v/unstable.svg)](https://packagist.org/packages/prettus/laravel-request-logger) [![License](https://poser.pugx.org/prettus/laravel-request-logger/license.svg)](https://packagist.org/packages/prettus/laravel-request-logger)
-[![Analytics](https://ga-beacon.appspot.com/UA-61050740-1/laravel-request-logger/readme)](https://packagist.org/packages/prettus/laravel-request-logger)
+[![Latest Stable Version](https://poser.pugx.org/magentron/laravel-request-logger/v/stable.svg)](https://packagist.org/packages/magentron/laravel-request-logger) [![Total Downloads](https://poser.pugx.org/magentron/laravel-request-logger/downloads.svg)](https://packagist.org/packages/magentron/laravel-request-logger) [![Latest Unstable Version](https://poser.pugx.org/magentron/laravel-request-logger/v/unstable.svg)](https://packagist.org/packages/magentron/laravel-request-logger) [![License](https://poser.pugx.org/magentron/laravel-request-logger/license.svg)](https://packagist.org/packages/magentron/laravel-request-logger)
+[![Analytics](https://ga-beacon.appspot.com/UA-61050740-1/laravel-request-logger/readme)](https://packagist.org/packages/magentron/laravel-request-logger)
 
 ## Installation
 
 ### Composer
 
-Add `prettus/laravel-request-logger` to the "require" section of your `composer.json` file.
+Add `magentron/laravel-request-logger` to the "require" section of your `composer.json` file.
 
 ```json
-	"prettus/laravel-request-logger": "1.2.*"
+	"magentron/laravel-request-logger": "^2.0.0"
 ```
 
 Run `composer update` to get the latest version of the package.
 
 or 
 
-Run `composer require prettus/laravel-request-logger` direct in your terminal
+Run `composer require magentron/laravel-request-logger` direct in your terminal
 
 ### Laravel
 
